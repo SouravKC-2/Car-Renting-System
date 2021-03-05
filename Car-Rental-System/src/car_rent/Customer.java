@@ -10,6 +10,9 @@ public class Customer
 
 	JFrame customer_frame ;
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	Customer ()
 	{
 		customer_frame = new JFrame ();
@@ -17,6 +20,9 @@ public class Customer
 	}
 
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public static void main(String[] args) 
 	{
 	       
