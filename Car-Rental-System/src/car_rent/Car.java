@@ -12,6 +12,7 @@ public class Car
 	public void show_car()
 	{
 		car_frame = new JFrame ();
+		car_frame.getContentPane().setLayout(null);
 	}
 	
 	public static void main(String[] args)
