@@ -16,23 +16,37 @@ public class Manager
 	{
 		   manager_frame = new JFrame();
 	       manager_frame.getContentPane().setLayout(null);
+	       manager_frame.setSize(955, 585);
 	       
 	       JPanel panel = new JPanel();
-	       panel.setBounds(0, 0, 231, 510);
+	       panel.setBackground(new Color(153, 0, 0));
+	       panel.setBounds(0, 0, 295, 548);
 	       manager_frame.getContentPane().add(panel);
 	       panel.setLayout(null);
 	       
-	       JButton checkdetails_button = new JButton("New button");
-	       checkdetails_button.setBounds(357, 113, 85, 21);
-	       manager_frame.getContentPane().add(checkdetails_button);
+	       JPanel panel_1 = new JPanel();
+	       panel_1.setBackground(new Color(255, 255, 255));
+	       panel_1.setBounds(293, 0, 648, 548);
+	       manager_frame.getContentPane().add(panel_1);
+	       panel_1.setLayout(null);
 	       
-	       JButton update_button = new JButton("New button");
-	       update_button.setBounds(357, 189, 85, 21);
-	       manager_frame.getContentPane().add(update_button);
+	       JButton update_button = new JButton("Update");
+	       update_button.setBackground(new Color(153, 0, 0));
+	       update_button.setFont(new Font("Arial", Font.BOLD, 18));
+	       update_button.setBounds(258, 251, 139, 46);
+	       panel_1.add(update_button);
 	       
-	       JButton report_button = new JButton("New button");
-	       report_button.setBounds(357, 296, 85, 21);
-	       manager_frame.getContentPane().add(report_button);
+	       JButton checkdetails_button = new JButton("CheckDetails");
+	       checkdetails_button.setBackground(new Color(153, 0, 0));
+	       checkdetails_button.setBounds(29, 251, 169, 46);
+	       panel_1.add(checkdetails_button);
+	       checkdetails_button.setFont(new Font("Arial", Font.BOLD, 18));
+	       
+	       JButton report_button = new JButton("Report\r\n");
+	       report_button.setBackground(new Color(153, 0, 0));
+	       report_button.setBounds(451, 251, 126, 46);
+	       panel_1.add(report_button);
+	       report_button.setFont(new Font("Arial", Font.BOLD, 18));
 	       manager_frame.setVisible(true);
 	   }
 	
