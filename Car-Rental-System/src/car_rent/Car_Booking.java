@@ -6,8 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Car_Booking 
-{
-
+{   
+	public int num;
 	JFrame carbooking_frame ;
 	
 	public void book_car()

@@ -1,5 +1,6 @@
 package car_rent;
 
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -8,13 +9,16 @@ import java.awt.event.ActionEvent;
 
 public class User 
 {
-	String[] userid_array = new String[10];
-	String[] password_array = new String[10] ;
-	String[] name_array = new String[10] ;
-	String[] role = new String[10];
-	int[] phone_array = new int[10] ;
-	int I = 0;
+	                        /************************************************************ General Details ************************************************************/
+	static ArrayList<String> name_array = new ArrayList<String>();
+	ArrayList<String> userid_array = new ArrayList<String>();
+	ArrayList<String> password_array = new ArrayList<String>();
+	ArrayList<String> role_array = new ArrayList<String>();
+	ArrayList<Integer> phone_array = new ArrayList<Integer>();
 	
+	/*public String[] pick_up = new String[10];    //For Car Class and Car Booking Class
+	public String[] drop = new String[10];
+	public String[] date = new String[10];*/
 	
                            /***** LOGIN FRAME *****/
 	JFrame login_frame ;
@@ -75,6 +79,14 @@ public class User
 		 });
 		 first_register.setBounds(537, 456, 85, 21);
 		 first_page.getContentPane().add(first_register);
+		 
+		 for(String i : name_array)
+	    	System.out.println(i);
+		 for(int i=0; i< name_array.size() ; i++)
+		 {
+			 System.out.println(" ");
+			 System.out.println(name_array.get(i));
+		 }
 	 }
 	
 	
@@ -85,7 +97,7 @@ public class User
 		login_frame.getContentPane().setBackground(Color.WHITE);
 		login_frame.setSize(955, 622);
 		login_frame.getContentPane().setLayout(null);
-		login_frame.setVisible(false);
+		//login_frame.setVisible(false);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.CYAN);
@@ -141,35 +153,28 @@ public class User
 				String str_userid = userid_text.getText();
 				String str_pwd = pwd_text.getText();
 				String str_role = role_txt.getText();
-				
-				for(int i=0;i<10;i++)
+				if(userid_array.contains(str_userid)  &&  password_array.contains(str_pwd)  &&  role_array.contains(str_role)==true )
 				{
-					if(userid_array[I]==str_userid && password_array[I]==str_pwd && role[I]==str_role)
+					if(str_role.equals("Customer"))
 					{
-						/*switch(str_role)
-						{
-					     	case "Customer" :
-							     Customer cr = new Customer();
-						     	 login_frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                                 cr.setVisible(true);
-                                 break;
-						   case "Driver" :
-							     Driver d= new Driver();
-						         login_frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-							     d.setVisible(true);
-							     break;
-					       case "Manager" :
-						     	 Manager m = new Manager();
-						     	 login_frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-						     	 m.show();
-						         break;
-						
-						}*/
+						Customer cr =new Customer();
+						cr.Visible();
+					}
+					else if(str_role.equals("Driver"))
+					{
+						Driver dr = new Driver();
+						dr.Location();
+					}
+					else 
+					{
+						Manager ma =new Manager();
+						ma.Visible();
+					}
 							
 								
 					}
 					
-				}
+				
 			}
 		});
 		
@@ -261,46 +266,48 @@ public class User
 		group.add(manager_radio);
 		group.add(driver_radio);
 		
-		
 		register_button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				String str_name = name_txt.getText();
 				String str_userid = register_userid_txt.getText();
 				String str_pwd_register = register_pwd_txt.getText();
-			//	int n_phone = phone_txt.getText();    //error
+			    //int n_phone = phone_txt.getText();    //error
 				
-				name_array[I] = str_name ;
-			//	phone_array[I] = n_phone ;            //error
-				userid_array[I] = str_userid ;
-				password_array[I] = str_pwd_register ;
-			    if (e.getSource()==customer_radio)
+				name_array.add(str_name);
+				userid_array.add(str_userid);
+				password_array.add(str_pwd_register);
+			    if (customer_radio.isSelected())
 			    {
-			    	role[I] = "Customer";
+			    	//role[I] = customer_radio.getText();
+			        role_array.add("Customer");
 			    }
-			    else if (e.getSource()==driver_radio)
+			    else if (driver_radio.isSelected())
 			    {
-			    	role[I]= "Driver";
-			    	
+			    	//role[I]= driver_radio.getText();
+			    	role_array.add("Driver");
 			    }
 			    else
-			    	role[I] = "Manager";
-				I++ ;
+			    {
+			    	// role[I]= manager_radio.getText();
+			    	role_array.add("Manager");
+			       }
 				
 				register_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				login_frame.setVisible(true);
 				
 			}
-		});
-		
+		});		
 		
 	  }
 	                 /********** MAIN BODY FOR USER CLASS **********/
 	public static void main(String[] args) 
 	{
 		User u = new User();
-	   u.first_page();
+	    u.first_page();
 	    u.register();
-	   u.login();
+	    u.login();
+	    for(String i : name_array)
+	    	System.out.println(i);
 	    }    
   }  //end of User Class

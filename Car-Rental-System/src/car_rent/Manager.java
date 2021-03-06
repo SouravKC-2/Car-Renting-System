@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.table.DefaultTableModel;
 
 public class Manager
 {
@@ -11,8 +12,13 @@ public class Manager
 	JFrame manager_frame ;
     JFrame check_frame ;
     JFrame update_details ;
+    private JTable table;
+    
+    String[] name_array;
+    String[] role;
+    String[] userid_array;
 	 
-	public void first()
+	/*public void first()
 	{
 		   manager_frame = new JFrame();
 	       manager_frame.getContentPane().setLayout(null);
@@ -27,7 +33,7 @@ public class Manager
 	       manager_frame.getContentPane().add(checkdetails_button);
 	       
 	       JButton update_button = new JButton("New button");
-	       update_button.setBounds(357, 189, 85, 21);
+	       update_button.setBounds(357, 211, 85, 21);
 	       manager_frame.getContentPane().add(update_button);
 	       
 	       JButton report_button = new JButton("New button");
@@ -35,16 +41,42 @@ public class Manager
 	       manager_frame.getContentPane().add(report_button);
 	       manager_frame.setVisible(true);
 	   }
-	
+                  /***** CHECK DETAILS FUNCTION *****/	
     public void check()
     {
+    	User u1 = new User();
+    	//name_array = u1.name_array;
+    	//role = u1.role;
+    	//userid_array = u1.userid_array;
+    //	int j = u1.I;
+    	check_frame = new JFrame ();
+    	check_frame.setSize(800,500);
+    	check_frame.getContentPane().setLayout(null);
     	
+    	JPanel panel = new JPanel();
+    	panel.setBounds(10, 10, 766, 443);
+    	check_frame.getContentPane().add(panel);
+    	panel.setLayout(null);
+    	
+         
+    	Object[][] row = {name_array ,userid_array , role };
+    	Object[] columns = {"No.","Name","User ID","Role"};
+    	table = new JTable(row,columns);
+    	table.setBounds(105, 85, 513, 307);
+    	panel.add(table);
+    	check_frame.setVisible(true);
     }
 	
 	public static void main(String[] args)
 	{
-	       Manager ma =new Manager();
-	       ma.first();
-	
+	       Manager m =new Manager();
+	       //System.out.println(j);
+	       //m.first();
+	       m.check();
+	  
          }
+	public void Visible()
+	{
+		manager_frame.setVisible(true);
+	}
 }
