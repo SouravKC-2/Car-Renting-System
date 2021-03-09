@@ -1,11 +1,15 @@
 package car_rent;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Manager
 {
@@ -13,7 +17,7 @@ public class Manager
 	JFrame manager_frame ;
     JFrame check_frame ;
     JFrame update_details ;
-    private JTable table;
+    // private JTable table;
     
     ArrayList<String> name_array = new ArrayList<String>();
 	ArrayList<String> userid_array = new ArrayList<String>();
@@ -24,24 +28,98 @@ public class Manager
 	public void first()
 	{
 		   manager_frame = new JFrame();
+		   manager_frame.getContentPane().setBackground(Color.WHITE);
 	       manager_frame.getContentPane().setLayout(null);
+	       manager_frame.setSize(1200, 700);
 	       
 	       JPanel panel = new JPanel();
-	       panel.setBounds(0, 0, 231, 510);
+	       panel.setBackground(new Color(178, 34, 34));
+	       panel.setBounds(0, 0, 300, 663);
 	       manager_frame.getContentPane().add(panel);
 	       panel.setLayout(null);
 	       
-	       JButton checkdetails_button = new JButton("New button");
-	       checkdetails_button.setBounds(357, 113, 85, 21);
+	       Border border = BorderFactory.createLineBorder(new Color(178, 34, 34));
+	       
+	       JButton checkdetails_button = new JButton("Check Customer Details");
+	       checkdetails_button.setBackground(Color.WHITE);
+	       checkdetails_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+	       checkdetails_button.setForeground(new Color(178, 34, 34));
+	       checkdetails_button.setBounds(650, 211, 300, 50);
+	       checkdetails_button.setBorder(border);
 	       manager_frame.getContentPane().add(checkdetails_button);
 	       
-	       JButton update_button = new JButton("New button");
-	       update_button.setBounds(357, 211, 85, 21);
+	       JButton update_button = new JButton("Update Details");
+	       update_button.setBackground(Color.WHITE);
+	       update_button.setForeground(new Color(178, 34, 34));
+	       update_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+	       update_button.setBounds(650, 349, 300, 50);
+	       update_button.setBorder(border);
 	       manager_frame.getContentPane().add(update_button);
 	       
-	       JButton report_button = new JButton("New button");
-	       report_button.setBounds(357, 296, 85, 21);
+	       JButton report_button = new JButton("View Report");
+	       report_button.setBackground(Color.WHITE);
+	       report_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+	       report_button.setForeground(new Color(178, 34, 34));
+	       report_button.setBounds(650, 480, 300, 50);
+	       report_button.setBorder(border);
 	       manager_frame.getContentPane().add(report_button);
+	       
+	       JLabel image_check = new JLabel("");
+	       image_check.setIcon(new ImageIcon("F:\\CRS\\checked.png"));
+	       image_check.setFont(new Font("Tahoma", Font.BOLD, 40));
+	       image_check.setBackground(Color.WHITE);
+	       image_check.setForeground(new Color(178, 34, 34));
+	       image_check.setHorizontalAlignment(SwingConstants.CENTER);
+	       image_check.setBounds(536, 211, 50, 50);
+	       manager_frame.getContentPane().add(image_check);
+	       
+	       JLabel image_update = new JLabel("");
+	       image_update.setIcon(new ImageIcon("F:\\CRS\\refresh-button.png"));
+	       image_update.setHorizontalAlignment(SwingConstants.CENTER);
+	       image_update.setForeground(new Color(178, 34, 34));
+	       image_update.setFont(new Font("Tahoma", Font.BOLD, 40));
+	       image_update.setBackground(Color.WHITE);
+	       image_update.setBounds(536, 349, 50, 50);
+	       manager_frame.getContentPane().add(image_update);
+	       
+	       JLabel image_report = new JLabel("");
+	       image_report.setIcon(new ImageIcon("F:\\CRS\\profit-report.png"));
+	       image_report.setHorizontalAlignment(SwingConstants.CENTER);
+	       image_report.setForeground(new Color(178, 34, 34));
+	       image_report.setFont(new Font("Tahoma", Font.BOLD, 40));
+	       image_report.setBackground(Color.WHITE);
+	       image_report.setBounds(536, 480, 50, 50);
+	       manager_frame.getContentPane().add(image_report);
+	       
+	       JLabel exit = new JLabel("X");
+	       exit.addMouseListener(new MouseAdapter() {
+	       	@Override
+	       	public void mouseClicked(MouseEvent e) {
+	       		System.exit(0);
+	       	}
+	       });
+	       exit.setHorizontalAlignment(SwingConstants.CENTER);
+	       exit.setForeground(new Color(178, 34, 34));
+	       exit.setFont(new Font("Tahoma", Font.BOLD, 40));
+	       exit.setBackground(Color.WHITE);
+	       exit.setBounds(1136, 0, 50, 50);
+	       manager_frame.getContentPane().add(exit);
+	       
+	       JLabel home = new JLabel("");
+	       home.addMouseListener(new MouseAdapter() {
+	       	@Override
+	       	public void mouseClicked(MouseEvent e) {
+	       	     User u =new User();
+	       	     u.first_page();
+	       	}
+	       });
+	       home.setIcon(new ImageIcon("F:\\CRS\\home (2).png"));
+	       home.setHorizontalAlignment(SwingConstants.CENTER);
+	       home.setForeground(new Color(178, 34, 34));
+	       home.setFont(new Font("Tahoma", Font.BOLD, 40));
+	       home.setBackground(Color.WHITE);
+	       home.setBounds(1077, 0, 50, 50);
+	       manager_frame.getContentPane().add(home);
 	       manager_frame.setVisible(true);
 	   }
                   /***** CHECK DETAILS FUNCTION *****/	
