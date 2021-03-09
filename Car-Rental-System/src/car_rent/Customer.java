@@ -25,7 +25,7 @@ public class Customer
 	     	public void actionPerformed(ActionEvent e) {
 	     	           customer_frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	     	           Car c1 = new Car();
-	     	           c1.Visible();
+	     	           c1.show_car();
 	     	}
 	     });
 	     car_book_button.setBounds(408, 119, 85, 21);
@@ -43,6 +43,7 @@ public class Customer
 	     feedback_button.setBounds(408, 403, 85, 21);
 	     customer_frame.getContentPane().add(feedback_button);
 	     customer_frame.setVisible(true);
+	     
 	}
 
 	

@@ -1,6 +1,7 @@
 package car_rent;
 
 import javax.swing.*;
+import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -14,11 +15,13 @@ public class Manager
     JFrame update_details ;
     private JTable table;
     
-    String[] name_array;
-    String[] role;
-    String[] userid_array;
+    ArrayList<String> name_array = new ArrayList<String>();
+	ArrayList<String> userid_array = new ArrayList<String>();
+	ArrayList<String> password_array = new ArrayList<String>();
+	ArrayList<String> role_array = new ArrayList<String>();
+	ArrayList<Integer> phone_array = new ArrayList<Integer>();
 	 
-	/*public void first()
+	public void first()
 	{
 		   manager_frame = new JFrame();
 	       manager_frame.getContentPane().setLayout(null);
@@ -42,7 +45,7 @@ public class Manager
 	       manager_frame.setVisible(true);
 	   }
                   /***** CHECK DETAILS FUNCTION *****/	
-    public void check()
+   /* public void check()
     {
     	User u1 = new User();
     	//name_array = u1.name_array;
@@ -58,21 +61,52 @@ public class Manager
     	check_frame.getContentPane().add(panel);
     	panel.setLayout(null);
     	
-         
-    	Object[][] row = {name_array ,userid_array , role };
-    	Object[] columns = {"No.","Name","User ID","Role"};
-    	table = new JTable(row,columns);
+    	//table = new JTable(row,columns);
     	table.setBounds(105, 85, 513, 307);
     	panel.add(table);
     	check_frame.setVisible(true);
-    }
-	
+    	
+    	User u = new User();
+    	name_array = u.name_array;
+    	userid_array = u.userid_array;
+    	phone_array = u.phone_array ;
+    	
+    	String[] header = {"No.","Name","User ID","Phone Number"};
+    	//Object[][] data = {name_array,userid_array,phone_array};
+    	
+    	ArrayList<String> name = new ArrayList<String>();
+    	
+    	for(int a=0 ; a<name_array.size(); a++)
+    	{
+    		name.add(name_array.get(a));
+    	   }
+        Object data[] = name.toArray();
+        
+    	
+    	DefaultTableModel model = new DefaultTableModel();
+    	table = new JTable(model);
+    	
+    	
+    	for (int i =0; i<name_array.size();i++) {
+           //  String index = i+1;
+         //   String name = name_array.get(i);
+           // String userid = userid_array.get(i);
+           //String phone = phone_array.get(i);
+           // String time = medList.get(i);
+           
+           // Component data = {index , name , userid };
+           // table.add(data);
+            
+            //Object[] data = {index,medicine, dose, date, time};         
+            //table.addRow(data);
+            }	
+    }*/
 	public static void main(String[] args)
 	{
 	       Manager m =new Manager();
 	       //System.out.println(j);
-	       //m.first();
-	       m.check();
+	       m.first();
+	       //m.check();
 	  
          }
 	public void Visible()
