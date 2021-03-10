@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.border.LineBorder;
 
 public class Manager
 {
@@ -34,78 +35,77 @@ public class Manager
 	       
 	       JPanel panel = new JPanel();
 	       panel.setBackground(new Color(178, 34, 34));
-	       panel.setBounds(0, 0, 300, 663);
+	       panel.setBounds(0, 0, 300, 700);
 	       manager_frame.getContentPane().add(panel);
 	       panel.setLayout(null);
 	       
 	       Border border = BorderFactory.createLineBorder(new Color(178, 34, 34));
 	       
-	       JButton checkdetails_button = new JButton("Check Customer Details");
-	       checkdetails_button.setBackground(Color.WHITE);
-	       checkdetails_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	       checkdetails_button.setForeground(new Color(178, 34, 34));
-	       checkdetails_button.setBounds(650, 211, 300, 50);
-	       checkdetails_button.setBorder(border);
-	       manager_frame.getContentPane().add(checkdetails_button);
-	       
-	       JButton update_button = new JButton("Update Details");
-	       update_button.setBackground(Color.WHITE);
-	       update_button.setForeground(new Color(178, 34, 34));
-	       update_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
-	       update_button.setBounds(650, 349, 300, 50);
-	       update_button.setBorder(border);
-	       manager_frame.getContentPane().add(update_button);
+	       JPanel panel_1 = new JPanel();
+	       panel_1.setBackground(Color.WHITE);
+	       panel_1.setBorder(new LineBorder(new Color(178, 34, 34), 2));
+	       panel_1.setBounds(272, 0, 928, 700);
+	       manager_frame.getContentPane().add(panel_1);
+	       panel_1.setLayout(null);
 	       
 	       JButton report_button = new JButton("View Report");
+	       report_button.setBounds(326, 528, 300, 50);
+	       panel_1.add(report_button);
+	       report_button.addActionListener(new ActionListener() {
+	       	public void actionPerformed(ActionEvent e) {
+	       	}
+	       });
 	       report_button.setBackground(Color.WHITE);
 	       report_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
 	       report_button.setForeground(new Color(178, 34, 34));
-	       report_button.setBounds(650, 480, 300, 50);
 	       report_button.setBorder(border);
-	       manager_frame.getContentPane().add(report_button);
+	       
+	       JButton update_button = new JButton("Update Details");
+	       update_button.setBounds(326, 367, 300, 50);
+	       panel_1.add(update_button);
+	       update_button.setBackground(Color.WHITE);
+	       update_button.setForeground(new Color(178, 34, 34));
+	       update_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+	       update_button.setBorder(border);
+	       
+	       JButton checkdetails_button = new JButton("Check Customer Details");
+	       checkdetails_button.setBounds(326, 202, 300, 50);
+	       panel_1.add(checkdetails_button);
+	       checkdetails_button.setBackground(Color.WHITE);
+	       checkdetails_button.setFont(new Font("Tahoma", Font.PLAIN, 20));
+	       checkdetails_button.setForeground(new Color(178, 34, 34));
+	       checkdetails_button.setBorder(border);
 	       
 	       JLabel image_check = new JLabel("");
+	       image_check.setBounds(211, 202, 50, 50);
+	       panel_1.add(image_check);
 	       image_check.setIcon(new ImageIcon("F:\\CRS\\checked.png"));
 	       image_check.setFont(new Font("Tahoma", Font.BOLD, 40));
 	       image_check.setBackground(Color.WHITE);
 	       image_check.setForeground(new Color(178, 34, 34));
 	       image_check.setHorizontalAlignment(SwingConstants.CENTER);
-	       image_check.setBounds(536, 211, 50, 50);
-	       manager_frame.getContentPane().add(image_check);
 	       
 	       JLabel image_update = new JLabel("");
+	       image_update.setBounds(211, 367, 50, 50);
+	       panel_1.add(image_update);
 	       image_update.setIcon(new ImageIcon("F:\\CRS\\refresh-button.png"));
 	       image_update.setHorizontalAlignment(SwingConstants.CENTER);
 	       image_update.setForeground(new Color(178, 34, 34));
 	       image_update.setFont(new Font("Tahoma", Font.BOLD, 40));
 	       image_update.setBackground(Color.WHITE);
-	       image_update.setBounds(536, 349, 50, 50);
-	       manager_frame.getContentPane().add(image_update);
 	       
 	       JLabel image_report = new JLabel("");
+	       image_report.setBounds(211, 528, 50, 50);
+	       panel_1.add(image_report);
 	       image_report.setIcon(new ImageIcon("F:\\CRS\\profit-report.png"));
 	       image_report.setHorizontalAlignment(SwingConstants.CENTER);
 	       image_report.setForeground(new Color(178, 34, 34));
 	       image_report.setFont(new Font("Tahoma", Font.BOLD, 40));
 	       image_report.setBackground(Color.WHITE);
-	       image_report.setBounds(536, 480, 50, 50);
-	       manager_frame.getContentPane().add(image_report);
-	       
-	       JLabel exit = new JLabel("X");
-	       exit.addMouseListener(new MouseAdapter() {
-	       	@Override
-	       	public void mouseClicked(MouseEvent e) {
-	       		System.exit(0);
-	       	}
-	       });
-	       exit.setHorizontalAlignment(SwingConstants.CENTER);
-	       exit.setForeground(new Color(178, 34, 34));
-	       exit.setFont(new Font("Tahoma", Font.BOLD, 40));
-	       exit.setBackground(Color.WHITE);
-	       exit.setBounds(1136, 0, 50, 50);
-	       manager_frame.getContentPane().add(exit);
 	       
 	       JLabel home = new JLabel("");
+	       home.setBounds(821, 0, 50, 50);
+	       panel_1.add(home);
 	       home.addMouseListener(new MouseAdapter() {
 	       	@Override
 	       	public void mouseClicked(MouseEvent e) {
@@ -118,8 +118,23 @@ public class Manager
 	       home.setForeground(new Color(178, 34, 34));
 	       home.setFont(new Font("Tahoma", Font.BOLD, 40));
 	       home.setBackground(Color.WHITE);
-	       home.setBounds(1077, 0, 50, 50);
-	       manager_frame.getContentPane().add(home);
+	       
+	       JLabel exit = new JLabel("X");
+	       exit.setBounds(878, 0, 50, 50);
+	       panel_1.add(exit);
+	       exit.addMouseListener(new MouseAdapter() {
+	       	@Override
+	       	public void mouseClicked(MouseEvent e) {
+	       		System.exit(0);
+	       	}
+	       });
+	       exit.setHorizontalAlignment(SwingConstants.CENTER);
+	       exit.setForeground(new Color(178, 34, 34));
+	       exit.setFont(new Font("Tahoma", Font.BOLD, 40));
+	       exit.setBackground(Color.WHITE);
+	       
+	       
+	       manager_frame.setUndecorated(true);
 	       manager_frame.setVisible(true);
 	   }
                   /***** CHECK DETAILS FUNCTION *****/	
@@ -186,9 +201,6 @@ public class Manager
 	       m.first();
 	       //m.check();
 	  
-         }
-	public void Visible()
-	{
-		manager_frame.setVisible(true);
 	}
+	
 }
